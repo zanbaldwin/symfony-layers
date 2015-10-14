@@ -1,0 +1,13 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+    <h1>{{ post.title }}</h1>
+    <p>
+        Posted on {{ post.createdOn|date('l, jS F, Y') }} at {{ post.createdOn|date('g:ia') }}.<br />
+        {% set postPathArgs = {year: post.createdOn|date('Y'), month: post.createdOn|date('m'), post: post.slug} %}
+        <a href="{{ path('app_blog_posts_edit', postPathArgs) }}" title="Edit Post">Edit</a>
+        &middot; <a href="{{ path('app_blog_posts_delete', postPathArgs) }}" title="Delete Post">Delete</a>
+    </p>
+    <hr />
+    {{ post.content }}
+{% endblock content %}

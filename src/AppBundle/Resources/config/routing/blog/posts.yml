@@ -1,0 +1,11 @@
+app_blog_posts_view:
+    path: /
+    defaults: { _controller: AppBundle:Blog:viewPost }
+
+app_blog_posts_edit:
+    path: /edit
+    defaults: { _controller: AppBundle:Blog:editPost }
+
+app_blog_posts_delete:
+    path: /delete
+    defaults: { _controller: AppBundle:Blog:deletePost }

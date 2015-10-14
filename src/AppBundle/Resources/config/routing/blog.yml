@@ -1,0 +1,19 @@
+app_blog_list:
+    path: /
+    defaults: { _controller: AppBundle:Blog:listPosts }
+
+app_blog_create:
+    path: /create
+    defaults: { _controller: AppBundle:Blog:createPost }
+
+_app_blog_posts:
+    resource: @AppBundle/Resources/config/routing/blog/posts.yml
+    prefix: /{year}/{month}/{post}
+
+app_blog_categories:
+    path: /categories
+    defaults: { _controller: AppBundle:Blog:listCategories }
+
+app_blog_category:
+    path: /{category}
+    defaults: { _controller: AppBundle:Blog:viewCategory }

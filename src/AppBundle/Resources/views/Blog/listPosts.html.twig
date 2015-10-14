@@ -1,0 +1,13 @@
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block content %}
+    <h1>{{ 'blog.post.list.title'|trans}} <small>&middot; <a href="{{ path('app_blog_create') }}">{{ 'blog.post.create.link'|trans }}</a></small></h1>
+    <section>
+        <article>
+            {% for post in posts %}
+                <h3><a href="{{ path('app_blog_posts_view', {year: post.createdOn|date('Y'), month: post.createdOn|date('m'), post: post.slug}) }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+                <p>{{ 'blog.post.posted_on'|trans({date: post.createdOn|date('l, jS F, Y g:ia')}) }}
+            {% endfor %}
+        </article>
+    </section>
+{% endblock content %}
