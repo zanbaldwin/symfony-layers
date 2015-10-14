@@ -78,3 +78,11 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+# Configuration for Friends of Symfony's user bundle.
+fos_user:
+    db_driver:              orm
+    firewall_name:          main
+    user_class:             AppBundle\Entity\User
+    group:
+        group_class:        AppBundle\Entity\Group
