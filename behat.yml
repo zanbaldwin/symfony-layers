@@ -1,0 +1,11 @@
+default:
+    suites:
+        app:
+            type: symfony_bundle
+            bundle: AppBundle
+    extensions:
+        Behat\Symfony2Extension: ~
+        Behat\MinkExtension:
+            sessions:
+                default:
+                    symfony2: ~

@@ -1,29 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- http://phpunit.de/manual/4.1/en/appendixes.configuration.html -->
+<!-- http://phpunit.de/manual/4.5/en/appendixes.configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.5/phpunit.xsd"
          backupGlobals="false"
          colors="true"
          bootstrap="bootstrap.php.cache"
+         verbose="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         stopOnFailure="false"
+         processIsolation="true"
 >
+
+    <!-- Test Suites. -->
     <testsuites>
         <testsuite name="Project Test Suite">
-            <directory>src/*/*Bundle/Tests</directory>
-            <directory>src/*/Bundle/*Bundle/Tests</directory>
-            <directory>src/*Bundle/Tests</directory>
+            <directory suffix="Test.php">src/*/*Bundle/Tests</directory>
+            <directory suffix="Test.php">src/*/Bundle/*Bundle/Tests</directory>
+            <directory suffix="Test.php">src/*Bundle/Tests</directory>
         </testsuite>
     </testsuites>
 
-    <!--
+    <!-- Logging. -->
+    <logging>
+        <log type="coverage-html" target="build/coverage/" charset="UTF-8" highlight="true" lowUpperBound="60" highLowerBound="85"/>
+        <log type="coverage-clover" target="build/coverage.xml"/>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+    </logging>
+
+    <!-- PHP Configuration. -->
     <php>
-        <server name="KERNEL_DIR" value="/path/to/your/app/" />
+        <server name="KERNEL_DIR" value="app/" />
+        <ini name="error_reporting" value="-1" />
+        <!-- Set the timezone to prevent errors from occuring everytime a date function is used within a test. -->
+        <ini name="date.timezone" value="UTC" />
     </php>
-    -->
 
     <filter>
-        <whitelist>
-            <directory>src</directory>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src</directory>
             <exclude>
                 <directory>src/*Bundle/Resources</directory>
                 <directory>src/*Bundle/Tests</directory>
@@ -34,4 +51,5 @@
             </exclude>
         </whitelist>
     </filter>
+
 </phpunit>

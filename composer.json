@@ -19,7 +19,15 @@
         "incenteev/composer-parameter-handler": "~2.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "phpunit/phpunit": "@stable",
+        "phpmd/phpmd": "@stable",
+        "squizlabs/php_codesniffer": "@stable",
+        "object-calisthenics/phpcs-calisthenics-rules": "@stable",
+        "behat/behat": "@stable",
+        "behat/mink-extension": "@stable",
+        "behat/mink-browserkit-driver": "@stable",
+        "behat/symfony2-extension": "@stable"
     },
     "scripts": {
         "post-install-cmd": [
