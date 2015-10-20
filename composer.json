@@ -7,8 +7,8 @@
         "psr-4": { "": "src/" }
     },
     "require": {
-        "php": ">=5.3.9",
-        "symfony/symfony": "2.7.*",
+        "php": ">=5.5",
+        "symfony/symfony": "~2.8",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
         "symfony/assetic-bundle": "~2.3",
@@ -17,7 +17,12 @@
         "sensio/distribution-bundle": "~4.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "friendsofsymfony/user-bundle": "~2.0"
+        "friendsofsymfony/user-bundle": "~2.0",
+        "doctrine/doctrine-cache-bundle": "~1.0",
+        "jackalope/jackalope-doctrine-dbal": "~1.2",
+        "phpcr/phpcr-shell": "~1.0",
+        "symfony-cmf/symfony-cmf": "~1.2",
+        "symfony-cmf/routing-auto-bundle": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
@@ -41,7 +46,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "prefer-dist": true
     },
     "extra": {
         "symfony-app-dir": "app",
